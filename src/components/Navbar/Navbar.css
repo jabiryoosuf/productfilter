@@ -1,0 +1,13 @@
+.navbar-main {
+    width: 100%;
+    height: 80px;
+    background-color:lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-main h1 {
+    color: white;
+    
+}

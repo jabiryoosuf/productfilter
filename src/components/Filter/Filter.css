@@ -1,0 +1,15 @@
+.filter-main {
+    display: flex;
+    width: 100%;
+    padding: 20px 50px;
+    justify-content: flex-end;
+}
+.filter-main form {
+}
+
+.filter-main form input {
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
