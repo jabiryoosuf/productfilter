@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const initialState = {
  allproduct:[],
- productCategory:[],
+//  productCategory:[],
 }
 
 export const allproductApi = createAsyncThunk(
@@ -18,7 +18,11 @@ export const allproductApi = createAsyncThunk(
 export const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {},
+  reducers: {
+    fiteredProdectCategory: (state, action) => {
+        state.allproduct = action.payload;
+      },
+  },
   extraReducers:{
  [allproductApi.pending]:()=>{
     console.log("data pending");
@@ -33,5 +37,5 @@ export const productSlice = createSlice({
   }
 })
 
-
+export const { fiteredProdectCategory} = productSlice.actions;
 export default productSlice.reducer;

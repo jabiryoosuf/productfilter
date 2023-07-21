@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Category.css";
 import { includes } from "lodash";
-import { allproductApi } from "../../store/ProductSlice";
+import { allproductApi, fiteredProdectCategory } from "../../store/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Category = () => {
@@ -13,6 +13,14 @@ const Category = () => {
     dispatch(allproductApi())
 
   },[])
+  useEffect(() => {
+    dispatch(fiteredProdectCategory(state));
+  },[state])
+
+
+  const CategoryFilterAll=()=>{
+    dispatch(allproductApi())
+  }
 
   const CategoryFilter=(category)=>{
     const result = allproduct.filter((product) => product.category.includes(category));
@@ -25,9 +33,9 @@ setState(result)
     <>
       <div className="category-main">
         <button onClick={()=>CategoryFilter("men")}>Men</button>
-        <button>Women</button>
-        <button>electronics</button>
-        <button>All</button>
+        <button onClick={()=>CategoryFilter("women")}>Women</button>
+        <button onClick={()=>CategoryFilter("electronics")}>electronics</button>
+        <button onClick={()=>CategoryFilterAll()}>All</button>
       </div>
     </>
   );
